@@ -42,7 +42,6 @@ pipeline {
 
         stage('Terraform Apply') {
             steps {
-                input message: 'Proceed with Terraform Apply?'
                 dir('terraform') {
                     sh 'terraform apply -auto-approve'
                 }
@@ -52,10 +51,10 @@ pipeline {
 
     post {
         success {
-            echo 'Terraform pipeline completed successfully.'
+            echo 'Terraform pipeline completed successfully'
         }
         failure {
-            echo 'Terraform pipeline failed.'
+            echo 'Terraform pipeline failed'
         }
     }
 }
